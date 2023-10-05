@@ -18,9 +18,9 @@ mongoose
   const User = mongoose.model("Users")
 
 
-  router.get('/', (req, res) => {
-
-    res.json(['😀', '😳', '🙄']);
+  router.get('/', async (req, res) => {
+    const users = await User.find({})
+    res.json( users );
   });
 
   router.post("/signup", async (req, res) => {
