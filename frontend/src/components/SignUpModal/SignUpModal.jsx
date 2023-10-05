@@ -15,7 +15,7 @@ function SignUpModal() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await fetch(`${baseUrl}/users/`, {
+        await fetch(`${baseUrl}/api/v1/users/signup`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

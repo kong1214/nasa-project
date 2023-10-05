@@ -14,8 +14,7 @@ function AuthenticateUserForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    await fetch(`${baseUrl}/session/`, {
+    await fetch(`${baseUrl}/api/v1/users/signin`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +26,6 @@ function AuthenticateUserForm() {
       } else {
         window.localStorage.setItem('token', data.token)
         window.localStorage.setItem('loggedIn', true)
-        window.localStorage.setItem('googleLog', true)
         setUser(data.user)
         setIsAuthenticated(true)
       }

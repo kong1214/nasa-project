@@ -40,7 +40,11 @@ router.post("/signup", async (req, res) => {
       email: email,
       hashedPassword: encryptedpassword,
     });
-    res.send({ status: "ok" });
+    const token = jwt.sign({ email: email }, process.env.JWT_SECRET, {
+      expiresIn: 800,
+    })
+
+    res.json({ status: "ok", token: token });
   } catch (error) {
     res.send({ status: error });
   }
@@ -53,16 +57,17 @@ router.post("/signin", async (req, res) => {
   if (user) {
     if (await bcrypt.compare(password, user.hashedPassword)) {
       const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
-        expiresIn: 600,
+        expiresIn: 800,
       });
 
       if (res.status(201)) {
-        return res.json({ status: "ok", data: token });
+        return res.json({ status: "ok", token: token });
       } else {
         return res.json({ error: "error" });
       }
     }
-  } else return res.json({ status: "error", error: "Invalid Credentials"})
+  }
+  return res.json({ status: "error", error: "Invalid Credentials"})
 });
 
 module.exports = router;
