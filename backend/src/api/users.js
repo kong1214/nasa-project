@@ -24,7 +24,7 @@ mongoose
   });
 
   router.post("/signup", async (req, res) => {
-    const { fname, lname, email, password } = req.body;
+    const { firstName, lastName, email, password } = req.body;
 
     const encryptedpassword = await bcrypt.hash(password, 10);
     try {
@@ -34,8 +34,8 @@ mongoose
         return res.send({ error: "User already exists with that email" });
       }
       await User.create({
-        fname: fname,
-        lname: lname,
+        firstName: firstName,
+        lastName: lastName,
         email: email,
         password: encryptedpassword,
       });
