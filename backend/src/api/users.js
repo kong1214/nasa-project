@@ -20,7 +20,7 @@ mongoose
 
   router.get('/', async (req, res) => {
     const users = await User.find({})
-    res.json( users );
+    res.json( users);
   });
 
   router.post("/signup", async (req, res) => {
