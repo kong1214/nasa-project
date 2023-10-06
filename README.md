@@ -29,7 +29,6 @@ This is a very simple full stack application, hosted on vercel. Users can log in
 * Kevin Ong - kevin.ong@live.com
 * [LinkedIn - Kevin Ong](https://www.linkedin.com/in/kevin-ong-357b16215/)
 * [Github - Kong1214](https://github.com/kong1214)
-* [Github - Project Link](https://github.com/kong1214/metam-project)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
